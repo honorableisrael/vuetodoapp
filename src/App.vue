@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <TodoList msg=""/> -->
     <Home />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Todo from './components/Home/Todo'
+import Home from './components/Home/Home';
+
 export default {
   name: 'app', 
   components: {
-    HelloWorld,
-    Todo,
+    Home
   }
 }
 </script>
@@ -24,7 +23,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
  
