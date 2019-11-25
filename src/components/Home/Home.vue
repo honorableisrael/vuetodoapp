@@ -22,8 +22,46 @@
                  <div class="connection"><b> Connection and setup</b></div>
                  <div class="taskwrapper">
                      <div class="taskbox1">   
-                         <h2 class="setup">Tasks</h2>
-                    </div>
+                         <h2 class="setup">Tasks</h2>               
+  <label>
+    <input type="radio" class="option-input radio" name="example" checked />
+    Setup Github respository.
+  </label>
+  <br>
+  <hr class="line">
+  <label>
+    <input type="radio" class="option-input radio" name="example" />
+    Setup Server at Herokue.
+  </label>
+  <br>
+  <hr class="line">
+  <label>
+    <input type="radio" class="option-input radio" name="example" />
+    Investigate swift server options like kitura and vapor.
+  </label>
+  <br>
+  <hr class="line">
+  <div class="authduewrapper">
+  <div>
+  <label>
+    <input type="radio" class="option-input radio" name="example" />
+    Write basic server that authenticates users.
+     </label> 
+    </div>
+    <div>
+    <span class="authduebox1">Auth</span> 
+    <span class="authduebox2">due 2 Dec 2018</span>
+    </div>
+  </div>
+  <br>
+  <hr class="line">
+  <label>
+    <input type="radio" class="option-input radio" name="example" />
+    Email questions to momenta B.V. on iOS app development.
+  </label>
+  <hr class="line">
+
+  </div>
                 </div>
 
             </div>
@@ -114,20 +152,116 @@ export default Vue.extend({
 }
 
 .taskbox1{
-    background-color: aliceblue;
+    background-color: inherit;
     flex: 2rem;
     margin-top: 2rem
 }
 
 .taskbox2{
-    background-color: aliceblue;
+    background: inherit;
     flex: 1rem;
 }
 .setup{
     color: blue;
     font-size: 2rem;
     font-style: normal;
-    margin-top: 3rem
+    margin-top: 3rem;
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 12.33333px;
+  right: 1;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+  font-size: 3rem;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background: #40e0d0;
+}
+.option-input:checked:before {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 0rem;
+  padding: 2px;
+}
+.option-input:checked:after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+  padding: 2px;
+}
+
+
+.option-input.radio:after {
+  border-radius: 50%;
+}
+
+.line{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+.authduewrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.authduebox1{
+    color: white;
+    text-align: right;
+    font-size: 13px;
+    padding:5px;
+    border-radius: 2rem;
+     background: orange;
+    flex : 1rem;
+    position: relative;
+    top: 7px;
+}
+
+
+.authduebox2{
+    color: white;
+    text-align: right;
+    font-size: 13px;
+    padding:5px;
+    border-radius: 2rem;
+     background: orange;
+     flex : 1rem;
+    position: relative;
+    top: 7px;
 }
 
 </style>
