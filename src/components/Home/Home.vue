@@ -249,6 +249,7 @@ export default Vue.extend({
     flex : 1rem;
     position: relative;
     top: 7px;
+    justify-content: space-between;
 }
 
 
@@ -258,7 +259,7 @@ export default Vue.extend({
     font-size: 13px;
     padding:5px;
     border-radius: 2rem;
-     background: orange;
+     background: blue;
      flex : 1rem;
     position: relative;
     top: 7px;
