@@ -16,7 +16,18 @@
                     </div>
                 </div>
         </div>
-        <div class="secondcontainer">Second Container</div>
+        <div class="secondcontainer">
+            <div>
+                 <span class="project-subtitle"> Project </span> : <span class="project-subtitle1">Develop new app</span>
+                 <div class="connection"><b> Connection and setup</b></div>
+                 <div class="taskwrapper">
+                     <div class="taskbox1">   
+                         <h2 class="setup">Tasks</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
 <script >
@@ -29,10 +40,25 @@ export default Vue.extend({
     .home-wrapper{
         display: flex;
     }
+
+    .project-subtitle{
+        color: grey;
+        text-align: left;
+        font-size: 12px;
+    }
+    .project-subtitle1{
+    color: rgb(97, 93, 93);
+    text-align: left;
+    font-size: 12px;
+    padding:5px;
+    border-radius: 2rem;
+     background: rgb(226, 223, 223);
+    }
     .secondcontainer{
         flex: 3;
-        /* background: rgb(252,252, 255); */
-        background: rgb(98, 98, 102);
+        text-align: left;
+        padding:5rem;
+        background:rgb(250, 247, 247);
         /* align-items: center; */
     }
     .firstcontainer{
@@ -78,4 +104,30 @@ export default Vue.extend({
         display: flex;
         justify-content: space-between;
     }
+.connection{
+    color: blue;
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+.taskwrapper{
+    display: flex;
+}
+
+.taskbox1{
+    background-color: aliceblue;
+    flex: 2rem;
+    margin-top: 2rem
+}
+
+.taskbox2{
+    background-color: aliceblue;
+    flex: 1rem;
+}
+.setup{
+    color: blue;
+    font-size: 2rem;
+    font-style: normal;
+    margin-top: 3rem
+}
+
 </style>
