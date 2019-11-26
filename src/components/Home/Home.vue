@@ -1,6 +1,6 @@
 <template>
-    <div class="home-wrapper">
-        <div class="firstcontainer">
+          <div class="home-wrapper">
+        <aside class="firstcontainer">
             <div class="firstcontainer-wrapper">
                  <div class="icons-wapper"> 
                     <img src='../../assets/left1.png' alt="left"/>
@@ -15,15 +15,20 @@
                         <div class="overview"> <img class="ontheagenda1" src='../../assets/search.png' alt="left"/> Search </div>
                     </div>
                 </div>
-        </div>
+        </aside>
         <div class="secondcontainer">
             <div>
                  <span class="project-subtitle"> Project </span> : <span class="project-subtitle1">Develop new app</span>
                  <div class="connection"><b> Connection and setup</b></div>
+                  <!-- <AppModal/> -->
+                  <EnterInfo/>
                  <div class="taskwrapper">
                      <div class="taskbox1">   
-                         <h2 class="setup">Tasks</h2>               
-  <label>
+                      <div class="task-wrap">
+                         <h2 class="setup">Tasks</h2>
+                         <!-- <span><button v-on:click="displayModal"> New Task</button></span>                -->
+                      </div>
+                    <label>
     <input type="radio" class="option-input radio" name="example" checked />
     Setup Github respository.
   </label>
@@ -61,24 +66,56 @@
   </label>
   <hr class="line">
 
-  </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
 </template>
 <script >
-import Vue from 'vue'
+import Vue from 'vue';
+// import AppModal from './Todo';
+import EnterInfo from './EnterInfo';
+
 export default Vue.extend({
     name:'Home',
+    beforeCreate(){
+          // eslint-disable-next-line
+        console.log('beforecreated')
+    },
+    created(){
+            // eslint-disable-next-line
+        console.log('created')
+    },
+    beforeMount(){
+            // eslint-disable-next-line
+        console.log('before mount')
+    },
+    mounted(){
+            // eslint-disable-next-line
+        console.log('mounted')
+    },
+    beforeUpdate(){
+      // eslint-disable-next-line
+        console.log(' before destroyed') 
+    },
+    components:{
+        // AppModal
+        EnterInfo
+    },
+    methods:{
+        displayModal(){
+            alert('Modal Displayed')
+                  // eslint-disable-next-line
+        console.log('click event') 
+        }
+    }
 })
 </script>
 <style scoped>
     .home-wrapper{
         display: flex;
     }
-
     .project-subtitle{
         color: grey;
         text-align: left;
@@ -95,6 +132,7 @@ export default Vue.extend({
     .secondcontainer{
         flex: 3;
         text-align: left;
+        margin-left: 290px;
         padding:5rem;
         background:rgb(250, 247, 247);
         /* align-items: center; */
@@ -102,6 +140,8 @@ export default Vue.extend({
     .firstcontainer{
          color: white;
          flex: 1;
+         position: fixed;
+         width: 290px;
     }
     .firstcontainer-wrapper{
         display: flex;
@@ -109,7 +149,8 @@ export default Vue.extend({
     .icons-wapper{
         background: rgb(32,45,138);
         padding-top: 2.5rem;
-        height: 100vh;
+        height: auto;
+        position: relative;
         flex:1;
     }
     .headerwrapper{
@@ -150,13 +191,11 @@ export default Vue.extend({
 .taskwrapper{
     display: flex;
 }
-
 .taskbox1{
     background-color: inherit;
     flex: 2rem;
     margin-top: 2rem
 }
-
 .taskbox2{
     background: inherit;
     flex: 1rem;
@@ -167,7 +206,6 @@ export default Vue.extend({
     font-style: normal;
     margin-top: 3rem;
 }
-
 .option-input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -225,12 +263,9 @@ export default Vue.extend({
   border-radius: 50%;
   padding: 2px;
 }
-
-
 .option-input.radio:after {
   border-radius: 50%;
 }
-
 .line{
     margin-left: 3rem;
     margin-right: 3rem;
@@ -251,8 +286,6 @@ export default Vue.extend({
     top: 7px;
     justify-content: space-between;
 }
-
-
 .authduebox2{
     color: white;
     text-align: right;
@@ -264,5 +297,8 @@ export default Vue.extend({
     position: relative;
     top: 7px;
 }
-
+.task-wrap{
+    display: flex;
+    justify-content: space-between;
+}
 </style>

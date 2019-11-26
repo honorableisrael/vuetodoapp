@@ -8,15 +8,20 @@
 <script>
 import Home from './components/Home/Home';
 
+
+
 export default {
   name: 'app', 
   components: {
     Home
   }
 }
+
 </script>
 
 <style>
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
