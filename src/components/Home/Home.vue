@@ -22,97 +22,46 @@
                  <div class="connection"><b> Connection and setup</b></div>
                   <!-- <AppModal/> -->
                   <EnterInfo/>
-                 <div class="taskwrapper">
-                     <div class="taskbox1">   
-                      <div class="task-wrap">
-                         <h2 class="setup">Tasks</h2>
-                         <!-- <span><button v-on:click="displayModal"> New Task</button></span>                -->
-                      </div>
-                    <label>
-    <input type="radio" class="option-input radio" name="example" checked />
-    Setup Github respository.
-  </label>
-  <br>
-  <hr class="line">
-  <label>
-    <input type="radio" class="option-input radio" name="example" />
-    Setup Server at Herokue.
-  </label>
-  <br>
-  <hr class="line">
-  <label>
-    <input type="radio" class="option-input radio" name="example" />
-    Investigate swift server options like kitura and vapor.
-  </label>
-  <br>
-  <hr class="line">
-  <div class="authduewrapper">
-  <div>
-  <label>
-    <input type="radio" class="option-input radio" name="example" />
-    Write basic server that authenticates users.
-     </label> 
-    </div>
-    <div>
-    <span class="authduebox1">Auth</span> 
-    <span class="authduebox2">due 2 Dec 2018</span>
-    </div>
-  </div>
-  <br>
-  <hr class="line">
-  <label>
-    <input type="radio" class="option-input radio" name="example" />
-    Email questions to momenta B.V. on iOS app development.
-  </label>
-  <hr class="line">
-
-                    </div>
-                </div>
+                  <tasklist></tasklist>
             </div>
         </div>
     </div>
-</template>
+</template> 
 <script >
 import Vue from 'vue';
-// import AppModal from './Todo';
+import tasklist from './tasklist'
 import EnterInfo from './EnterInfo';
 
 export default Vue.extend({
     name:'Home',
     beforeCreate(){
-          // eslint-disable-next-line
         console.log('beforecreated')
     },
     created(){
-            // eslint-disable-next-line
         console.log('created')
     },
     beforeMount(){
-            // eslint-disable-next-line
         console.log('before mount')
     },
     mounted(){
-            // eslint-disable-next-line
         console.log('mounted')
     },
     beforeUpdate(){
-      // eslint-disable-next-line
         console.log(' before destroyed') 
     },
     components:{
-        // AppModal
-        EnterInfo
+        EnterInfo,
+        tasklist
     },
     methods:{
         displayModal(){
             alert('Modal Displayed')
-                  // eslint-disable-next-line
         console.log('click event') 
         }
     }
 })
 </script>
-<style scoped>
+<style>
     .home-wrapper{
         display: flex;
     }
