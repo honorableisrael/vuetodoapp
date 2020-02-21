@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <TodoList msg=""/> -->
     <Home />
   </div>
 </template>

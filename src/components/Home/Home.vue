@@ -1,5 +1,5 @@
 <template>
-          <div class="home-wrapper">
+    <div class="home-wrapper">
         <aside class="firstcontainer">
             <div class="firstcontainer-wrapper">
                  <div class="icons-wapper"> 
@@ -17,12 +17,12 @@
                 </div>
         </aside>
         <div class="secondcontainer">
-            <div>
-                 <span class="project-subtitle"> Project </span> : <span class="project-subtitle1">Develop new app</span>
+        <div>
+            <span class="project-subtitle"> Project </span> : <span class="project-subtitle1">Develop new app</span>
                  <div class="connection"><b> Connection and setup</b></div>
                   <!-- <AppModal/> -->
                   <EnterInfo/>
-                  <tasklist></tasklist>
+                  <tasklist/>
             </div>
         </div>
     </div>
@@ -34,11 +34,15 @@ import EnterInfo from './EnterInfo';
 
 export default Vue.extend({
     name:'Home',
+    components:{
+        EnterInfo,
+        tasklist
+    },
     beforeCreate(){
         console.log('beforecreated')
     },
     created(){
-        console.log('created')
+        console.log('created'+this.$store)
     },
     beforeMount(){
         console.log('before mount')
@@ -48,10 +52,6 @@ export default Vue.extend({
     },
     beforeUpdate(){
         console.log(' before destroyed') 
-    },
-    components:{
-        EnterInfo,
-        tasklist
     },
     methods:{
         displayModal(){

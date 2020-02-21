@@ -27,6 +27,7 @@ export default {
             name:'',
             message:'',
             startDate:'',
+            todos:[],
             endDate:'',
             errorMessage:''
         }
@@ -55,13 +56,15 @@ export default {
             // starts:this.startDate,
             // ends:this.endDate
         }
-        console.log(formData)
+        this.todos=[formData]
+        console.log(todos);
+        // console.log(formData)
     }
   }
 }
 </script>
 <style scoped>
-.startdate{
+.startdate {
     border-radius: 2rem;
 }
 </style>

@@ -1,30 +1,34 @@
 <template>
 <div>
-     <div class="taskwrapper">
-            <div class="taskbox1">   
-                <div class="task-wrap">
-                    <h2 class="setup">Tasks</h2>
-                    <!-- <span><button v-on:click="displayModal"> New Task</button></span>                -->
-                </div>
-                
-    <div v-for="task in allTask" v-bind:key="task.name">
-            <div class="authduewrapper">
+    <div class="taskwrapper">
+        <div class="taskbox1">   
+            <div class="task-wrap">
+                <h2 class="setup">Tasks</h2>
+            </div>
+    <div v-for="(task,index) in allTask" v-bind:key="task.name">
+        <div class="authduewrapper">
             <div>
                 <label>
-                    <input type="radio" class="option-input radio" name="example" />
+                <input type="radio" class="option-input radio" name="example" />
                    {{task.name}}
                 </label> 
             </div>
-                <div>
-                    <span class="authduebox1">Auth</span> 
-                    <span class="authduebox2">due 2 Dec 2018</span>
-                </div>
+            <div>
+                <span class="authduebox1">Auth</span> 
+                    <span class="authduebox2">{{task.date}}</span>
+                    <i 
+                    title="delete todo"
+                    class="deleteIcon" 
+                    @click="deleteTodo(index)"
+                    > X
+                    </i>
             </div>
+        </div>
                 <br>
                 <hr class="line">
-            </div>
-         </div>
         </div>
+    </div>
+    </div>
 </div>
 </template>
 <script>
@@ -34,13 +38,31 @@ export default Vue.extend({
     data(){
         return{
             allTask:[
-                {name:'Setup Github respository.' },
-                {name:'Setup Server at Herokue.'},
-                {name:'Investigate swift server options like kitura and vapor.'},
-                {name:'Write basic server that authenticates users.'},
-                {name:' Email questions to momenta B.V. on iOS app development.'}
+                {name:'Setup Github respository.', date:"19-10-2020" },
+                {name:'Setup Server at Herokue.', date:"29-12-2020"},
+                {name:'Investigate swift server options like kitura and vapor.', date:"5-12-2020"},
+                {name:'Write basic server that authenticates users.',date:"18-12-2020"},
+                {name:' Email questions to momenta B.V. on iOS app development.', date:"19-12-2020"}
             ]
+        }
+    },
+    methods:{
+        deleteTodo(index){
+            console.log(index)
+           const newList = this.allTask.splice(index,1)
         }
     }
 })
 </script>
+<style>
+    .deleteIcon{
+        background: red;
+        color: white;
+        border-radius: 50%;
+        padding: 4px;
+        position: relative;
+        top: 7px;
+        left: 7px;
+        cursor: pointer;
+    }
+</style>
