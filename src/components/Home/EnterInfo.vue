@@ -33,22 +33,20 @@ export default {
         }
     },
      methods: {
-         validate(){  //validate form data
-                         
-         },
+        addTodoToHome(){
+            console.log(this.formData)
+            this.$emit('updateEventArray',this.formData)
+        },
         handleOk(){
             if( this.name =="" && this.message ==="" ){
                  console.log(this.errorMessage)
                  return this.errorMessage = "All fields are required"
              }
-            // if(this.errorMessage ===''){
-            //     return ''
-            // }
             else{
                 this.submitForm()
             }
             console.log("summit ok")
-            },
+        },
         submitForm(){
          const formData = {
             name:this.name,

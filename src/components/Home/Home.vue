@@ -8,8 +8,9 @@
                     <img src='../../assets/left3.png' alt="left"/>
                 </div>
                     <div class="headerwrapper">
-                        <div class="wrapper-1"><h3>Project</h3> <div><img class="ontheagend" src='../../assets/notification.png' alt="left"/><img class="ontheagend" src='../../assets/notification1.png' alt="left"/></div></div>
+                        <div class="wrapper-1"><h3 @:click="changeTheTitle">{{ title }}</h3> <div><img class="ontheagend" src='../../assets/notification.png' alt="left"/><img class="ontheagend" src='../../assets/notification1.png' alt="left"/></div></div>
                         <div class="overview">Overview </div>
+                         <div class="overview">{{name}}</div>
                         <div> <img class="ontheagenda" src='../../assets/ontheagenda.png' alt="left"/> On the Agenda </div>
                         <div class="overview"> <img class="ontheagenda1" src='../../assets/Today.png' alt="left"/> Today </div>
                         <div class="overview"> <img class="ontheagenda1" src='../../assets/search.png' alt="left"/> Search </div>
@@ -18,11 +19,12 @@
         </aside>
         <div class="secondcontainer">
         <div>
-            <span class="project-subtitle"> Project </span> : <span class="project-subtitle1">Develop new app</span>
+            <span class="project-subtitle"> Project </span> : <span class="project-subtitle1">You currently have {{lengthOfTodo}}  todos</span>
+             <div> <button class="checknow" v-bind:click="addName()">Check Username</button> </div>
                  <div class="connection"><b> Connection and setup</b></div>
                   <!-- <AppModal/> -->
-                  <EnterInfo/>
-                  <tasklist/>
+                  <EnterInfo></EnterInfo>
+                  <tasklist></tasklist> 
             </div>
         </div>
     </div>
@@ -31,6 +33,8 @@
 import Vue from 'vue';
 import tasklist from './tasklist'
 import EnterInfo from './EnterInfo';
+import store from '../../store/index';
+
 
 export default Vue.extend({
     name:'Home',
@@ -38,30 +42,47 @@ export default Vue.extend({
         EnterInfo,
         tasklist
     },
-    beforeCreate(){
-        console.log('beforecreated')
-    },
-    created(){
-        console.log('created'+this.$store)
-    },
-    beforeMount(){
-        console.log('before mount')
+    data(){
+        return {
+            title:'TodoList',
+            allTask:[],
+            name:''
+        }
     },
     mounted(){
-        console.log('mounted')
+        this.allTask = JSON.parse(JSON.stringify(this.$store.state.allTask))
+        this.name = this.$store.state.name
     },
-    beforeUpdate(){
-        console.log(' before destroyed') 
+    computed:{
+        lengthOfTodo(){
+            return this.allTask.length
+        }
     },
     methods:{
         displayModal(){
-            alert('Modal Displayed')
-        console.log('click event') 
+            alert ('Modal Displayed')
+            console.log('click event') 
+        },
+        addName(){
+           return this.$store.commit('changeName')
+        },
+        changeTheTitle(){
+            this.title = 'Custom TodoList'
         }
     }
 })
 </script>
 <style>
+    .checknow{
+        border: 1px solid orange;
+        border-radius: 1rem;
+        color: orange;
+        padding: 5px 1rem;
+        margin-top: 1rem;
+    }
+    .checknow:focus{
+        outline: none;
+    }
     .home-wrapper{
         display: flex;
     }

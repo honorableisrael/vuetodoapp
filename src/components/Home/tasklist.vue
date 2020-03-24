@@ -15,12 +15,12 @@
             </div>
             <div>
                 <span class="authduebox1">Auth</span> 
-                    <span class="authduebox2">{{task.date}}</span>
+                    <span class="authduebox2">{{task.date       }}</span>
                     <i 
                     title="delete todo"
                     class="deleteIcon" 
                     @click="deleteTodo(index)"
-                    > X
+                    > <img src='../../assets/bin.png' alt="bin" height="30" width="30"/>
                     </i>
             </div>
         </div>
@@ -33,30 +33,29 @@
 </template>
 <script>
 import Vue from 'vue';
+import store from '../../store/index';
 export default Vue.extend({
     name:'tasklist',
     data(){
         return{
-            allTask:[
-                {name:'Setup Github respository.', date:"19-10-2020" },
-                {name:'Setup Server at Herokue.', date:"29-12-2020"},
-                {name:'Investigate swift server options like kitura and vapor.', date:"5-12-2020"},
-                {name:'Write basic server that authenticates users.',date:"18-12-2020"},
-                {name:' Email questions to momenta B.V. on iOS app development.', date:"19-12-2020"}
-            ]
+            allTask:[]
         }
+    },
+    store,
+    mounted(){
+        this.allTask= JSON.parse(JSON.stringify(this.$store.state.allTask))
     },
     methods:{
         deleteTodo(index){
             console.log(index)
            const newList = this.allTask.splice(index,1)
+           alert('todo deleted')
         }
     }
 })
 </script>
 <style>
     .deleteIcon{
-        background: red;
         color: white;
         border-radius: 50%;
         padding: 4px;
