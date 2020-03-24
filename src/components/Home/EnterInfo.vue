@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-button v-b-modal.modal-1>
+    <b-button class="newagenda" v-b-modal.modal-1>
         Add New Agenda
     </b-button>
     <b-modal id="modal-1" title="New Activity" @ok="handleOk">
@@ -64,5 +64,10 @@ export default {
 <style scoped>
 .startdate {
     border-radius: 2rem;
+}
+.newagenda{
+    background: transparent;
+    border:1px solid orange;
+    color: orange;
 }
 </style>
